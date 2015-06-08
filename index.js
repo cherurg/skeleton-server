@@ -44,7 +44,7 @@ io.on('connection', function (socket) {
   });
 
   socket.send('yes?');
-
+  console.log('yes?');
 });
 
 server.listen(8000);
