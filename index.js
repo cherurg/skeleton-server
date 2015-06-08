@@ -18,13 +18,13 @@ server.listen(80);*/
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
-var io = require('socket.io')(server/*, {
-	origins:'visualmath.ru:* http://visualmath.ru:* http://www.visualmath.ru:* www.visualmath.ru:*'
-}*/);
+var io = require('socket.io')(server, {
+	origins:'visualmath.ru:* http://visualmath.ru:* http://www.visualmath.ru:* www.visualmath.ru:* socket.io:* http://socket.io:* http://socket.io:* www.socket.io:* '
+});
 
-app.disable('x-powered-by');
-/*app.use(express.static('public'));*/
-/*app.use(function (req, res, next) {
+/*app.disable('x-powered-by');
+app.use(express.static('public'));
+app.use(function (req, res, next) {
         res.setHeader('Access-Control-Allow-Origin', "http://"+req.headers.host+':8000');
 
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
