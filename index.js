@@ -23,7 +23,7 @@ var io = require('socket.io')(server, {
 });
 
 app.disable('x-powered-by');
-app.use(express.static('public'));
+/*app.use(express.static('public'));*/
 app.use(function (req, res, next) {
         res.setHeader('Access-Control-Allow-Origin', "http://"+req.headers.host+':8000');
 
