@@ -15,14 +15,27 @@ io.on('connection', function (socket) {
 
 server.listen(80);*/
 
+var makeOrigin = function (origin) {
+  var str = origin + ':*' + ' ';
+  str += 'http://' + origin + ':*' + ' ';
+  str += 'www.' + origin + ':*' + ' ';
+  str += 'http://' + 'www.' + origin + ':*' + ' ';
+
+  return str;
+}
+
+var origins = makeOrigin('visualmath.ru');
+origins += makeOrigin('socket.io');
+origins += makeOrigin('localhost:9000');
+
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server, {
-	origins:'visualmath.ru:* http://visualmath.ru:* http://www.visualmath.ru:* www.visualmath.ru:* socket.io:* http://socket.io:* http://socket.io:* www.socket.io:* '
+  origins: origins
 });
 
-/*app.disable('x-powered-by');
+app.disable('x-powered-by');
 app.use(express.static('public'));
 app.use(function (req, res, next) {
         res.setHeader('Access-Control-Allow-Origin', "http://"+req.headers.host+':8000');
@@ -31,7 +44,7 @@ app.use(function (req, res, next) {
         res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
         next();
     }
-);*/
+);
 
 io.on('connection', function (socket) {
 
@@ -40,7 +53,7 @@ io.on('connection', function (socket) {
   });
 
   socket.on('disconnect', function () {
-    
+
   });
 
   socket.send('yes?');
