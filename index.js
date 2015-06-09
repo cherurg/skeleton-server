@@ -27,6 +27,7 @@ var makeOrigin = function (origin) {
 var origins = makeOrigin('visualmath.ru');
 origins += makeOrigin('socket.io');
 origins += makeOrigin('localhost:9000');
+origins += makeOrigin('cherurg.github.io');
 
 var express = require('express');
 var app = express();
