@@ -1,20 +1,3 @@
-/*var server = require('http').createServer();
-var io = require('socket.io')(server);
-
-io.on('connection', function (socket) {
-  console.log('connected');
-  var i = 0;
-  socket.on('data', function (data) {
-    console.log(i++);
-    socket.broadcast.emit('data', data);
-  });
-  socket.on('disconnect', function () {
-    console.log('disconnected');
-  });
-});
-
-server.listen(80);*/
-
 var makeOrigin = function (origin) {
   var str = origin + ':*' + ' ';
   str += 'http://' + origin + ':*' + ' ';
@@ -62,4 +45,4 @@ io.on('connection', function (socket) {
   console.log('yes?');
 });
 
-server.listen(80);
+server.listen(process.env.OPENSHIFT_NODEJS_PORT || 80);
