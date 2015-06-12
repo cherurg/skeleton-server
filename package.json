@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodejs index.js",
+    "start": "supervisor index.js",
     "babel": "babel test/test.jsx --watch --sourcemaps --out-file test/test.js"
   },
   "author": "",
