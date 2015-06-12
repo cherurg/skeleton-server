@@ -1,5 +1,4 @@
-var socket = io('http://194.177.21.129/');
-
+var socket = io('nodejs-hsemath1.rhcloud.com');
 
 socket.on('connect', () => {
     document.write('connected');
