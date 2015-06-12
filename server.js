@@ -48,10 +48,6 @@ io.on('connection', function (socket) {
   console.log('yes?');
 });
 
-<<<<<<< HEAD:server.js
 server.listen(server_port, server_ip_address, function(){
   console.log("Listening on " + server_ip_address + ", server_port " + server_port)
 });
-=======
-server.listen(process.env.OPENSHIFT_NODEJS_PORT || 80);
->>>>>>> d86c943bb3f1057b354b1a854495f7ac1f2e4283:index.js
